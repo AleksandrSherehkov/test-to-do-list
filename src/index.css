@@ -18,3 +18,32 @@
 .animate-spin-slow {
   animation-timing-function: steps(5000);
 }
+
+
+.custom-scrollbar {
+    height: 47vh;
+    overflow-y: auto;
+    margin-top: 16px;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    background-color: transparent;
+    border-radius: 20px;
+    width: 6px;
+    opacity: 0.3;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border-radius: 20px;
+    opacity: 0.3;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    width: 6px;
+    background: #767fae;
+    border-radius: 20px;
+    opacity: 0.3;
+}

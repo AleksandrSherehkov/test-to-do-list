@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import { addTask, deleteTask, editTask, toggleTask } from '../../redux/task/tasksSlice'
 import { TitlePage } from '../TitlePage/TitlePage'
 import { TaskForm } from '../TaskForm/TaskForm'
 import { TaskFilter } from '../TaskFilter/TaskFilter'
 import { TaskList } from '../TaskList/TaskList'
+import { TaskCounter } from '../TaskCounter/TaskCounter'
 
 
 
@@ -34,8 +35,11 @@ export const ToDoList = (): JSX.Element => {
     }
   }
 
+  const completedCount = tasks.filter(task => task.completed).length
+  const uncompletedCount = tasks.filter(task => !task.completed).length
+
   return (
-    <div className="mx-auto flex flex-col  w-2/3 p-8 rounded-2xl bg-[#9FCFDF]">
+    <div className="mx-auto flex flex-col items-center  w-2/3 p-8 rounded-2xl bg-turquoise">
       <TitlePage title="To-Do List App" />
       <TaskForm onAddTask={handleAddTask} />
       <TaskFilter setFilter={setFilter} />
@@ -45,10 +49,7 @@ export const ToDoList = (): JSX.Element => {
         editTask={handleEdit}
         deleteTask={(id: string) => dispatch(deleteTask({ id }))}
       />
-      <div className="mt-4">
-        <p>Сompleted: {tasks.filter(task => task.completed).length}</p>
-        <p>Uncompleted: {tasks.filter(task => !task.completed).length}</p>
-      </div>
+      <TaskCounter completedCount={completedCount} uncompletedCount={uncompletedCount} />
     </div>
   )
 }
