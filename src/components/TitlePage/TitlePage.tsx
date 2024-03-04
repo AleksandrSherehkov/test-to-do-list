@@ -6,6 +6,6 @@ interface TitlePageProps {
 
 export const TitlePage:FC<TitlePageProps> = ({title}) => {
   return (
-    <h1>{title}</h1>
+    <h1 className="text-3xl font-bold">{title}</h1>
   )
 }
