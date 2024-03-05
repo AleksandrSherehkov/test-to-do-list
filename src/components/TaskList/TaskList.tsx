@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { TaskListItem } from '../TaskListItem/TaskListItem'
 import { Task } from '../../utils/definitions'
 

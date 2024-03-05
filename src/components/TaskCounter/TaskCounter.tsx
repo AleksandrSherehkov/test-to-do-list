@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { CounterItem } from '../CounterItem/CounterItem'
 
 interface TaskCounterProps {

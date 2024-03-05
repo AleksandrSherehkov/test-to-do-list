@@ -1,9 +1,9 @@
-import React, { FC, useEffect, useState } from 'react'
+import  { FC, ReactNode, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { RxCross2 } from "react-icons/rx"
 
 interface ModalProps {
-  children: React.ReactNode
+  children: ReactNode
   isOpen: boolean
   onClose: () => void
 }

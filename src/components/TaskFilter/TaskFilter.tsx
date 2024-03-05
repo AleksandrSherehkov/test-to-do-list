@@ -1,5 +1,7 @@
 import { ChangeEvent, FC } from 'react'
+
 import { taskFilters } from '../../constants/filter'
+
 import { getLabelClass } from '../../utils/tailwindClasses'
 
 interface TaskFilterProps  {

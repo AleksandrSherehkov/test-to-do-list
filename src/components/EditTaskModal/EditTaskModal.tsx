@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Modal from '../Modal/Modal'
+
 import { taskSchema } from '../../utils/taskSchema' 
+
+import Modal from '../Modal/Modal'
 
 interface EditTaskModalProps {
   isOpen: boolean

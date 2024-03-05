@@ -1,6 +1,8 @@
-import  { useState } from 'react'
+import { useState } from 'react'
+
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import { addTask, deleteTask, editTask, toggleTask } from '../../redux/task/tasksSlice'
+
 import { TitlePage } from '../TitlePage/TitlePage'
 import { TaskForm } from '../TaskForm/TaskForm'
 import { TaskFilter } from '../TaskFilter/TaskFilter'
