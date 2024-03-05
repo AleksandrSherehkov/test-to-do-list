@@ -36,7 +36,7 @@ export const TaskForm = ({ onAddTask }: TaskFormProps): JSX.Element => {
         />
         <button type="submit" className="w-1/5 border p-2 rounded-xl text-lg font-bold bg-gradient-to-r from-blue-500 to-blue-400 text-white transition-all duration-300 ease-in-out hover:from-blue-400 hover:to-blue-600">Add task</button>
       </form>
-      {error && <div className="text-red-500">{error}</div>} 
+      {error && <div className="text-red-500 self-start ml-2">{error}</div>} 
     </>
   )
 }

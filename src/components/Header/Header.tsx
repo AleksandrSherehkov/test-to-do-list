@@ -5,7 +5,7 @@ import { Navigation } from '../Navigation/Navigation'
 
 export const Header = ():JSX.Element => {
   return (
-    <header className=" py-4 px-10 w-full flex justify-between   gap-10 md:flex-row items-center">
+    <header className=" py-4 px-10 w-full flex justify-around   gap-10 md:flex-row items-center">
       <Link
         to="/"
         className="cursor-pointer flex title-font   title-font font-medium items-center text-gray-900  transform transition-transform hover:scale-105"
