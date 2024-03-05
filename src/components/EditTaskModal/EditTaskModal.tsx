@@ -14,7 +14,6 @@ interface EditTaskModalProps {
 export const EditTaskModal: React.FC<EditTaskModalProps> = ({ isOpen, onClose, taskName, onSave }) => {
 
   const [newName, setNewName] = useState(taskName)
-  
   const [error, setError] = useState('')
 
   useEffect(() => {
