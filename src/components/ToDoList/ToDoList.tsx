@@ -42,7 +42,7 @@ export const ToDoList = (): JSX.Element => {
     <div className="mx-auto flex flex-col items-center  w-2/3 p-8 rounded-2xl bg-turquoise">
       <TitlePage title="To-Do List App" />
       <TaskForm onAddTask={handleAddTask} />
-      <TaskFilter setFilter={setFilter} />
+      <TaskFilter setFilter={setFilter} currentFilter={filter} />
       <TaskList
         tasks={filteredTasks}
         toggleTask={(id: string) => dispatch(toggleTask({ id }))}

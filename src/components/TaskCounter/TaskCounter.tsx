@@ -1,4 +1,5 @@
 import React from 'react'
+import { CounterItem } from '../CounterItem/CounterItem'
 
 interface TaskCounterProps {
   completedCount: number
@@ -8,8 +9,8 @@ interface TaskCounterProps {
 export const TaskCounter: React.FC<TaskCounterProps> = ({ completedCount, uncompletedCount }) => {
   return (
     <div className="mt-4">
-      <p>Completed: {completedCount}</p>
-      <p>Uncompleted: {uncompletedCount}</p>
+      <CounterItem label="Completed" count={completedCount} />
+      <CounterItem label="Uncompleted" count={uncompletedCount} />
     </div>
   )
 }

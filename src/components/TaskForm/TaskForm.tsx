@@ -23,7 +23,7 @@ export const TaskForm = ({ onAddTask }: TaskFormProps): JSX.Element => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex gap-2 mb-4 w-full">
+      <form onSubmit={handleSubmit} className="flex gap-2  w-full mt-8 mb-12">
         <input
           type="text"
           placeholder="Enter Task"
