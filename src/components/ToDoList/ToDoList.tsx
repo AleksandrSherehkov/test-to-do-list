@@ -63,7 +63,7 @@ export const ToDoList = (): JSX.Element => {
         <TaskCounter completedCount={completedCount} uncompletedCount={uncompletedCount} />
         <TaskFilter setFilter={setFilter} currentFilter={filter} />
       </div>
-      {tasks.length === 0 ? <p className=' mt-[30%] xt-center text-4xl font-extrabold text-fogWhite'>No added tasks</p>: <TaskList
+      {filteredTasks.length === 0 ? <p className=' mt-[30%] xt-center text-4xl font-extrabold text-fogWhite'>No tasks</p>: <TaskList
         tasks={filteredTasks}
         toggleTask={(id: string) => dispatch(toggleTask({ id }))}
         editTask={handleEdit}
