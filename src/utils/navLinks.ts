@@ -1,4 +1,4 @@
 export const links = [
   { path: '/', title: 'Home' },
-  { path: 'tasks', title: 'Tasks' },
+  { path: '/tasks', title: 'Tasks' },
 ]
