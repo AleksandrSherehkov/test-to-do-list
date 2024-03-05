@@ -1,7 +1,8 @@
 import { ChangeEvent, FC } from 'react'
 import { taskFilters } from '../../constants/filter'
+import { getLabelClass } from '../../utils/tailwindClasses'
 
-type TaskFilterProps = {
+interface TaskFilterProps  {
   setFilter: (filter: string) => void
   currentFilter: string
 }
@@ -13,10 +14,12 @@ export const TaskFilter: FC<TaskFilterProps> = ({ setFilter, currentFilter }) =>
     setFilter(e.target.value)
   }
 
+  
+
   return (
-    <form className="flex gap-2 mb-4">
+    <form className="flex gap-3  place-self-end">
       {taskFilters.map((filter) => 
-        <label key={filter.value} >
+        <label key={filter.value} className={`${getLabelClass(filter.value)} text-lg font-bold`}>
           {filter.label}
           <input
             type="radio"

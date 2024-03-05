@@ -42,14 +42,17 @@ export const ToDoList = (): JSX.Element => {
     <div className="mx-auto flex flex-col items-center  w-2/3 p-8 rounded-2xl bg-turquoise">
       <TitlePage title="To-Do List App" />
       <TaskForm onAddTask={handleAddTask} />
-      <TaskFilter setFilter={setFilter} currentFilter={filter} />
+      <div className='w-full flex justify-between items-center mt-8'>
+        <TaskCounter completedCount={completedCount} uncompletedCount={uncompletedCount} />
+        <TaskFilter setFilter={setFilter} currentFilter={filter} />
+      </div>
       <TaskList
         tasks={filteredTasks}
         toggleTask={(id: string) => dispatch(toggleTask({ id }))}
         editTask={handleEdit}
         deleteTask={(id: string) => dispatch(deleteTask({ id }))}
       />
-      <TaskCounter completedCount={completedCount} uncompletedCount={uncompletedCount} />
+      
     </div>
   )
 }

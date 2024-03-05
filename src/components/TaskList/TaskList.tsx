@@ -15,7 +15,7 @@ interface TaskListProps {
 export const TaskList: React.FC<TaskListProps> = ({ tasks, toggleTask, editTask, deleteTask }) => {
   return (
     <div className='flex flex-col it custom-scrollbar w-full pr-2'>
-      <ul className='flex flex-col gap-y-3 w-full'>
+      <ul className='flex flex-col gap-y-3 w-full px-2'>
         {tasks.map((task, index) => 
           <TaskListItem
             key={task.id}

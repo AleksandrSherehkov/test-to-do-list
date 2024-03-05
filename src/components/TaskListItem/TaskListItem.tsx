@@ -16,13 +16,13 @@ interface TaskListItemProps {
 
 export const TaskListItem: React.FC<TaskListItemProps> = ({ task, toggleTask, editTask, deleteTask,index }) => {
   return (
-    <li className='flex justify-between items-center p-4 rounded-xl bg-fogWhite w-full'>
-      <span onClick={() => toggleTask(task.id)} className={`w-full cursor-pointer ${task.completed ? 'line-through text-red-500' : 'text-swamp'}`}>
+    <li className='flex justify-between items-center p-4 rounded-xl bg-fogWhite w-full shadow-xl transition-all duration-200 ease-in-out transform hover:scale-[102%] hover:bg-slate-300'>
+      <button onClick={() => toggleTask(task.id)} className={`text-left w-full cursor-pointer ${task.completed ? 'line-through text-red-500' : 'text-swamp'}`}>
         {index + 1}. {task.name}
-      </span>
+      </button>
       <div className='flex gap-3'>
-        <button onClick={() => editTask(task.id)} ><BiSolidEditAlt size={24} className="cursor-pointer fill-pastelGreen"/></button>
-        <button onClick={() => deleteTask(task.id)}><MdDeleteForever size={24} className="cursor-pointer fill-azure" /></button>
+        <button onClick={() => editTask(task.id)} ><BiSolidEditAlt size={24} className="cursor-pointer fill-pastelGreen hover:fill-greenBright"/></button>
+        <button onClick={() => deleteTask(task.id)}><MdDeleteForever size={24} className="cursor-pointer fill-azure hover:fill-redDark" /></button>
       </div>
     </li>
   )
