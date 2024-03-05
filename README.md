@@ -1,30 +1,56 @@
-# React + TypeScript + Vite
+ToDo List Project
+Welcome to the ToDo List Project! This is a React.js application designed to help you manage your daily tasks efficiently. Built with modern technologies like Redux for state management and Tailwind CSS for styling, this project demonstrates best practices and modern front-end development techniques.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+Task Management: Easily add, complete, and delete tasks from your to-do list.
+Character Limit: A new record is only added if its length is less than or equal to N characters, ensuring concise task descriptions.
+Task Status Toggling: Switch between Completed/Not Completed status with a simple click on the task name.
+Filtering: View tasks filtered by their status - All, Completed, or Current, making it easy to focus on what's important.
+Task Counters: Visual counters for both completed and uncompleted tasks, helping you track your progress.
+Redux Storage: State management is handled via Redux, ensuring a predictable state container across the app.
+Stylish UI: Utilizing Tailwind CSS, the UI is responsive, accessible, and pleasing to the eye.
+Technologies Used
+React.js 18.2.0
+Redux Toolkit 2.2.1
+React Redux 9.1.0
+React Router DOM 6.22.2
+Redux Persist 6.0.0
+Zod 3.22.4 (for validation)
+React Icons 5.0.1
+Tailwind CSS 3.4.1
+TypeScript 5.2.2
+Vite 5.1.4 (for fast development and bundling)
+ESLint with wemake-frontend-styleguide for code quality
+Getting Started
+To get a local copy up and running, follow these simple steps.
 
-Currently, two official plugins are available:
+Clone the repository:
+bash
+Copy code
+git clone https://your-project-link.git
+Install the dependencies:
+bash
+Copy code
+npm install
+Run the project:
+bash
+Copy code
+npm run dev
+Contributing
+We welcome contributions to the ToDo List Project! Whether it's submitting bugs, requesting new features, or contributing code, we value your input.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Fork the project.
+Create your Feature branch (git checkout -b feature/AmazingFeature).
+Commit your changes (git commit -m 'Add some AmazingFeature').
+Push to the branch (git push origin feature/AmazingFeature).
+Open a Pull Request.
+License
+Distributed under the MIT License. See LICENSE for more information.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Acknowledgments
+React.js
+Redux Toolkit
+Tailwind CSS
+Vite
+wemake-frontend-styleguide
+Thank you for checking out our project. We hope you find it useful and look forward to seeing how you use it to manage your tasks!
