@@ -12,7 +12,7 @@ export const App = (): JSX.Element => {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="tasks" element={<TasksPage />} />
+        <Route path="/tasks" element={<TasksPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
       
