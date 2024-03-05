@@ -51,6 +51,7 @@ export const ToDoList = (): JSX.Element => {
 
   const completedCount = tasks.filter(task => task.completed).length
   const uncompletedCount = tasks.filter(task => !task.completed).length
+  console.log('render')
 
   return (
     <div className="h-screen mx-auto flex flex-col items-center  w-2/3 p-8 rounded-2xl bg-turquoise">
