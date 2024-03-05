@@ -5,7 +5,7 @@ Welcome to the ToDo List Project! This is a React.js application designed to hel
 ## Features
 
 - **Task Management:** Easily add, complete, and delete tasks from your to-do list.
-- **Character Limit:** A new record is only added if its length is less than or equal to N characters, ensuring concise task descriptions.
+- **Character Limit:** A new record is only added if its length is less than or equal to 50 characters, ensuring concise task descriptions.
 - **Task Status Toggling:** Switch between Completed/Not Completed status with a simple click on the task name.
 - **Filtering:** View tasks filtered by their status - All, Completed, or Current, making it easy to focus on what's important.
 - **Task Counters:** Visual counters for both completed and uncompleted tasks, helping you track your progress.
