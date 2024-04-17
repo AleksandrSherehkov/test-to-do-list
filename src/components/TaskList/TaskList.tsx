@@ -1,10 +1,10 @@
 import { FC } from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import {
   DragDropContext,
   Droppable,
   Draggable,
   DropResult,
-  DroppableProvided,
 } from 'react-beautiful-dnd';
 
 import { TaskListItem } from '../TaskListItem/TaskListItem';
@@ -66,32 +66,36 @@ export const TaskList: FC = (): JSX.Element => {
   return (
     <DragDropContext onDragEnd={handleOnDragEnd}>
       <Droppable droppableId="tasks">
-        {(provided: DroppableProvided) => (
+        {provided => (
           <ul
             {...provided.droppableProps}
             ref={provided.innerRef}
             className="custom-scrollbar flex flex-col gap-2 items-center w-full pr-2 mt-4"
           >
-            {filteredTasks.map((task, index) => (
-              <Draggable key={task.id} draggableId={task.id} index={index}>
-                {provided => (
-                  <div
-                    className="w-full "
-                    ref={provided.innerRef}
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                  >
-                    <TaskListItem
-                      task={task}
-                      index={index}
-                      toggleTask={handleToggleTask}
-                      editTask={handleEditTask}
-                      deleteTask={handleDeleteTask}
-                    />
-                  </div>
-                )}
-              </Draggable>
-            ))}
+            <TransitionGroup component={null}>
+              {filteredTasks.map((task, index) => (
+                <CSSTransition key={task.id} timeout={500} classNames="task">
+                  <Draggable draggableId={task.id} index={index}>
+                    {provided => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        className="w-full"
+                      >
+                        <TaskListItem
+                          task={task}
+                          index={index}
+                          toggleTask={handleToggleTask}
+                          editTask={handleEditTask}
+                          deleteTask={handleDeleteTask}
+                        />
+                      </div>
+                    )}
+                  </Draggable>
+                </CSSTransition>
+              ))}
+            </TransitionGroup>
             {provided.placeholder}
           </ul>
         )}

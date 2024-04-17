@@ -19,31 +19,48 @@
   animation-timing-function: steps(5000);
 }
 
-
 .custom-scrollbar {
-    height: 90vh;
-    overflow-y: auto;
-    margin-top: 16px;
+  height: 90vh;
+  overflow-y: auto;
+  margin-top: 16px;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-    background-color: transparent;
-    border-radius: 20px;
-    width: 6px;
-    opacity: 0.3;
+  background-color: transparent;
+  border-radius: 20px;
+  width: 6px;
+  opacity: 0.3;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    border-radius: 20px;
-    opacity: 0.3;
+  background: transparent;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border-radius: 20px;
+  opacity: 0.3;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    width: 6px;
-    background: #767fae;
-    border-radius: 20px;
-    opacity: 0.3;
+  width: 6px;
+  background: #767fae;
+  border-radius: 20px;
+  opacity: 0.3;
+}
+
+.task-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.task-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms, transform 500ms;
+}
+.task-exit {
+  opacity: 1;
+}
+.task-exit-active {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 500ms, transform 500ms;
 }
