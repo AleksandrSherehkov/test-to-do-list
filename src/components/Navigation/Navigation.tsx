@@ -1,14 +1,13 @@
+import { LINKS_LIST } from '@/constants/navLinks';
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-
-import { links } from '@/utils/navLinks';
 
 export const Navigation: FC = (): JSX.Element => {
   const activeLink =
     'text-blue-800  font-bold transition-all  duration-300 ease-in-out hover:text-yellow-500 ';
   return (
     <nav className=" flex flex-wrap gap-8  items-center text-yellow-500 font-semibold justify-center ">
-      {links.map(({ path, title }) => (
+      {LINKS_LIST.map(({ path, title }) => (
         <NavLink
           to={path}
           key={title}
