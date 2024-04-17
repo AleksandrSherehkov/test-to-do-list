@@ -8,5 +8,5 @@ export interface TasksState {
   tasks: Task[];
   filter: string;
   editModalOpen: boolean;
-  currentTask: Task | null;
+  currentTaskId: string;
 }

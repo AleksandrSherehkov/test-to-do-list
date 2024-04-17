@@ -1,43 +1,49 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { taskSchema } from '../../utils/taskSchema';
 
 import Modal from '../Modal/Modal';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { closeEditModal, editTask } from '@/redux/task/tasksSlice';
+import { selectCurrentTaskForEditing } from '@/redux/task/taskSelectors';
 
-interface EditTaskModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  taskName: string;
-  onSave: (newName: string) => void;
-}
+export const EditTaskModal = () => {
+  const dispatch = useAppDispatch();
 
-export const EditTaskModal: React.FC<EditTaskModalProps> = ({
-  isOpen,
-  onClose,
-  taskName,
-  onSave,
-}) => {
-  const [newName, setNewName] = useState(taskName);
+  const { editModalOpen } = useAppSelector(state => state.tasks);
+  const currentTask = useAppSelector(selectCurrentTaskForEditing);
+  const [newName, setNewName] = useState(currentTask?.name);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    setNewName(taskName);
-  }, [taskName]);
+    if (currentTask) {
+      setNewName(currentTask?.name);
+    }
+  }, [currentTask]);
+
+  const handleCloseModal = () => {
+    dispatch(closeEditModal());
+  };
 
   const handleSave = (): void => {
-    const validationResult = taskSchema.safeParse(newName);
-    if (validationResult.success) {
-      onSave(newName);
-      setNewName('');
-      setError('');
-      onClose();
+    if (newName && currentTask) {
+      const validationResult = taskSchema.safeParse(newName);
+      if (validationResult.success) {
+        // Теперь можно безопасно использовать currentTask.id, так как мы проверили его наличие
+        dispatch(editTask({ id: currentTask.id, name: newName }));
+        setNewName('');
+        setError('');
+        handleCloseModal();
+      } else {
+        setError(validationResult.error.errors[0].message);
+      }
     } else {
-      setError(validationResult.error.errors[0].message);
+      setError('No task selected or name is empty.');
     }
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={editModalOpen} onClose={handleCloseModal}>
       <div className="flex flex-col gap-y-2">
         <input
           type="text"

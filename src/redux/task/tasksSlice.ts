@@ -1,12 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { TasksState } from '../../utils/definitions';
-import { RootState } from '../store';
 
 const initialState: TasksState = {
   tasks: [],
   filter: 'current',
   editModalOpen: false,
-  currentTask: null,
+  currentTaskId: '',
 };
 
 const tasksSlice = createSlice({
@@ -41,25 +40,14 @@ const tasksSlice = createSlice({
     },
     openEditModal: (state, action: PayloadAction<string>) => {
       state.editModalOpen = true;
-      state.currentTask = state.tasks[action.payload];
+      state.currentTaskId = action.payload;
     },
     closeEditModal: state => {
       state.editModalOpen = false;
-      state.currentTask = null;
+      state.currentTaskId = '';
     },
   },
 });
-
-export const selectFilteredTasks = (state: RootState) => {
-  switch (state.tasks.filter) {
-    case 'completed':
-      return state.tasks.tasks.filter(task => task.completed);
-    case 'current':
-      return state.tasks.tasks.filter(task => !task.completed);
-    default:
-      return state.tasks.tasks;
-  }
-};
 
 export const {
   addTask,
