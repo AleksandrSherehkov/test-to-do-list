@@ -1,27 +1,29 @@
-import { ChangeEvent, FC } from 'react'
+import { ChangeEvent, FC } from 'react';
 
-import { taskFilters } from '../../constants/filter'
+import { TASK_FILTERS } from '../../constants/filter';
 
-import { getLabelClass } from '../../utils/tailwindClasses'
+import { getLabelClass } from '../../utils/tailwindClasses';
 
-interface TaskFilterProps  {
-  setFilter: (filter: string) => void
-  currentFilter: string
+interface TaskFilterProps {
+  setFilter: (filter: string) => void;
+  currentFilter: string;
 }
 
-export const TaskFilter: FC<TaskFilterProps> = ({ setFilter, currentFilter }) => {
-  
-
+export const TaskFilter: FC<TaskFilterProps> = ({
+  setFilter,
+  currentFilter,
+}) => {
   const handleFilterChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setFilter(e.target.value)
-  }
-
-  
+    setFilter(e.target.value);
+  };
 
   return (
     <form className="flex gap-3  place-self-end">
-      {taskFilters.map((filter) => 
-        <label key={filter.value} className={`${getLabelClass(filter.value)} text-lg font-bold`}>
+      {TASK_FILTERS.map(filter => (
+        <label
+          key={filter.value}
+          className={`${getLabelClass(filter.value)} text-lg font-bold`}
+        >
           {filter.label}
           <input
             type="radio"
@@ -32,7 +34,7 @@ export const TaskFilter: FC<TaskFilterProps> = ({ setFilter, currentFilter }) =>
             className="ml-2"
           />
         </label>
-      )}
+      ))}
     </form>
-  )
-}
+  );
+};
