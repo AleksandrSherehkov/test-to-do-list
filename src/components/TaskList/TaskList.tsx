@@ -70,7 +70,7 @@ export const TaskList: FC = (): JSX.Element => {
           <ul
             {...provided.droppableProps}
             ref={provided.innerRef}
-            className="flex flex-col gap-2 items-center w-full pr-2 mt-4"
+            className="custom-scrollbar flex flex-col gap-2 items-center w-full pr-2 mt-4"
           >
             {filteredTasks.map((task, index) => (
               <Draggable key={task.id} draggableId={task.id} index={index}>
