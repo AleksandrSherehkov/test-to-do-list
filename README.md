@@ -12,6 +12,11 @@ Welcome to the ToDo List Project! This is a React.js application designed to hel
 - **Redux Storage:** State management is handled via Redux, ensuring a predictable state container across the app.
 - **Stylish UI:** Utilizing Tailwind CSS, the UI is responsive, accessible, and pleasing to the eye.
 
+## Enhanced Features
+
+- **Draggable Tasks:** Reorder tasks using drag and drop functionality powered by `react-beautiful-dnd`.
+- **Animations:** Smooth animations for task actions using `react-transition-group`.
+
 ## Technologies Used
 
 - React.js 18.2.0
@@ -25,6 +30,8 @@ Welcome to the ToDo List Project! This is a React.js application designed to hel
 - TypeScript 5.2.2
 - Vite 5.1.4 (for fast development and bundling)
 - ESLint with wemake-frontend-styleguide for code quality
+- react-transition-group
+- react-beautiful-dnd
 
 ## Getting Started
 
