@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 
 import { taskSchema } from '../../utils/taskSchema';
+import { Modal } from '../Modal/Modal';
 
-import Modal from '../Modal/Modal';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { closeEditModal, editTask } from '@/redux/task/tasksSlice';
 import { selectCurrentTaskForEditing } from '@/redux/task/taskSelectors';
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 
 export const EditTaskModal = () => {
   const dispatch = useAppDispatch();
@@ -29,7 +30,6 @@ export const EditTaskModal = () => {
     if (newName && currentTask) {
       const validationResult = taskSchema.safeParse(newName);
       if (validationResult.success) {
-        // Теперь можно безопасно использовать currentTask.id, так как мы проверили его наличие
         dispatch(editTask({ id: currentTask.id, name: newName }));
         setNewName('');
         setError('');
@@ -54,7 +54,7 @@ export const EditTaskModal = () => {
           }}
           className="outline-none w-full border p-2 rounded-lg text-lg font-medium transition-all duration-300 hover:border-2 hover:border-gray-400"
         />
-        {error && <div className="text-red-500">{error}</div>}
+        {error && <ErrorMessage error={error} />}
         <button
           onClick={handleSave}
           className="mx-auto w-1/5 border p-2 rounded-xl text-lg font-bold bg-gradient-to-r from-blue-500 to-blue-400 text-white transition-all duration-300 ease-in-out hover:from-blue-400 hover:to-blue-600"

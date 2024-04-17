@@ -1,27 +1,26 @@
 import { AnimatePresence, motion } from 'framer-motion';
 
 import { TaskListItem } from '../TaskListItem/TaskListItem';
-import { Task } from '../../utils/definitions';
 
-interface TaskListProps {
-  tasks: Task[];
-  toggleTask: (id: string) => void;
-  editTask: (id: string) => void;
-  deleteTask: (id: string) => void;
-}
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { selectFilteredTasks } from '@/redux/task/taskSelectors';
+import { deleteTask, openEditModal, toggleTask } from '@/redux/task/tasksSlice';
+import { FC } from 'react';
 
-export const TaskList: React.FC<TaskListProps> = ({
-  tasks,
-  toggleTask,
-  editTask,
-  deleteTask,
-}) => {
+export const TaskList: FC = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const filteredTasks = useAppSelector(selectFilteredTasks);
+
+  const handleToggleTask = (id: string) => dispatch(toggleTask({ id }));
+  const handleDeleteTask = (id: string) => dispatch(deleteTask({ id }));
+  const handleEditTask = (id: string) => dispatch(openEditModal(id));
+
   return (
     <div className="flex flex-col it custom-scrollbar w-full pr-2">
       <AnimatePresence>
         <ul className="flex flex-col gap-y-3 w-full ">
-          {tasks.map((task, index) => (
-            <motion.li
+          {filteredTasks.map((task, index) => (
+            <motion.div
               key={task.id}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -32,11 +31,11 @@ export const TaskList: React.FC<TaskListProps> = ({
               <TaskListItem
                 task={task}
                 index={index}
-                toggleTask={toggleTask}
-                editTask={editTask}
-                deleteTask={deleteTask}
+                toggleTask={handleToggleTask}
+                editTask={handleEditTask}
+                deleteTask={handleDeleteTask}
               />
-            </motion.li>
+            </motion.div>
           ))}
         </ul>
       </AnimatePresence>

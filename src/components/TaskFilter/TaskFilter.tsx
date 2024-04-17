@@ -1,12 +1,12 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, FC } from 'react';
 
 import { TASK_FILTERS } from '../../constants/filter';
-
 import { getLabelClass } from '../../utils/tailwindClasses';
+
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { setFilter } from '@/redux/task/tasksSlice';
 
-export const TaskFilter = () => {
+export const TaskFilter: FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const currentFilter = useAppSelector(state => state.tasks.filter);
 

@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-import { Navigation } from '../Navigation/Navigation'
+import { Navigation } from '../Navigation/Navigation';
+import { FC } from 'react';
 
-
-export const Header = ():JSX.Element => {
+export const Header: FC = (): JSX.Element => {
   return (
     <header className=" py-4 px-10 w-full flex justify-around   gap-10 md:flex-row items-center">
       <Link
@@ -22,5 +22,5 @@ export const Header = ():JSX.Element => {
 
       <Navigation />
     </header>
-  )
-}
+  );
+};
