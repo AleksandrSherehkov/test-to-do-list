@@ -1,20 +1,17 @@
-import { ChangeEvent, FC } from 'react';
+import { ChangeEvent } from 'react';
 
 import { TASK_FILTERS } from '../../constants/filter';
 
 import { getLabelClass } from '../../utils/tailwindClasses';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { setFilter } from '@/redux/task/tasksSlice';
 
-interface TaskFilterProps {
-  setFilter: (filter: string) => void;
-  currentFilter: string;
-}
+export const TaskFilter = () => {
+  const dispatch = useAppDispatch();
+  const currentFilter = useAppSelector(state => state.tasks.filter);
 
-export const TaskFilter: FC<TaskFilterProps> = ({
-  setFilter,
-  currentFilter,
-}) => {
   const handleFilterChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setFilter(e.target.value);
+    dispatch(setFilter(e.target.value));
   };
 
   return (

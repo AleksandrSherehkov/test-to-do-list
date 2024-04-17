@@ -5,6 +5,7 @@ import {
   addTask,
   deleteTask,
   editTask,
+  selectFilteredTasks,
   toggleTask,
 } from '../../redux/task/tasksSlice';
 
@@ -17,7 +18,7 @@ import { EditTaskModal } from '../EditTaskModal/EditTaskModal';
 import { NoTasks } from '../NoTasks/NoTasks';
 
 export const ToDoList = (): JSX.Element => {
-  const [filter, setFilter] = useState('current');
+  const filteredTasks = useAppSelector(selectFilteredTasks);
 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [currentTask, setCurrentTask] = useState({ id: '', name: '' });
@@ -28,12 +29,6 @@ export const ToDoList = (): JSX.Element => {
   const handleAddTask = (taskName: string): void => {
     dispatch(addTask({ name: taskName }));
   };
-
-  const filteredTasks = tasks.filter(task => {
-    if (filter === 'completed') return task.completed;
-    if (filter === 'current') return !task.completed;
-    return true;
-  });
 
   const handleEdit = (id: string): void => {
     const taskToEdit = tasks.find(task => task.id === id);
@@ -61,7 +56,7 @@ export const ToDoList = (): JSX.Element => {
           completedCount={completedCount}
           uncompletedCount={uncompletedCount}
         />
-        <TaskFilter setFilter={setFilter} currentFilter={filter} />
+        <TaskFilter />
       </div>
       {filteredTasks.length === 0 ? (
         <NoTasks text="No tasks" />
