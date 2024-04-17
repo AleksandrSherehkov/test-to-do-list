@@ -46,6 +46,16 @@ const tasksSlice = createSlice({
       state.editModalOpen = false;
       state.currentTaskId = '';
     },
+    reorderTasks: (
+      state,
+      action: PayloadAction<{ startIndex: number; endIndex: number }>
+    ) => {
+      const { startIndex, endIndex } = action.payload;
+      const result = Array.from(state.tasks);
+      const [removed] = result.splice(startIndex, 1);
+      result.splice(endIndex, 0, removed);
+      state.tasks = result;
+    },
   },
 });
 
@@ -57,6 +67,7 @@ export const {
   setFilter,
   openEditModal,
   closeEditModal,
+  reorderTasks,
 } = tasksSlice.actions;
 
 export default tasksSlice.reducer;
