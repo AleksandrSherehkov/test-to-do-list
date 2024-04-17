@@ -13,7 +13,7 @@ export const EditTaskModal = () => {
 
   const { editModalOpen } = useAppSelector(state => state.tasks);
   const currentTask = useAppSelector(selectCurrentTaskForEditing);
-  const [newName, setNewName] = useState(currentTask?.name);
+  const [newName, setNewName] = useState(currentTask?.name ?? '');
   const [error, setError] = useState('');
 
   useEffect(() => {
