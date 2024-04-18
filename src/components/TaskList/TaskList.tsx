@@ -70,7 +70,7 @@ export const TaskList: FC = (): JSX.Element => {
           <ul
             {...provided.droppableProps}
             ref={provided.innerRef}
-            className="custom-scrollbar flex flex-col gap-2 items-center w-full pr-2 mt-4"
+            className="custom-scrollbar flex flex-col gap-2 items-center w-full px-3 mt-4"
           >
             <TransitionGroup component={null}>
               {filteredTasks.map((task, index) => (
