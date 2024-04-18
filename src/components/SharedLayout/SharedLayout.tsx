@@ -7,7 +7,7 @@ export const SharedLayout: FC = (): JSX.Element => {
   return (
     <div className="container mx-auto bg-cyan-600 min-h-screen ">
       <Header />
-      <main className="p-10">
+      <main className="p-5 md:p-10">
         <Suspense>
           <Outlet />
         </Suspense>

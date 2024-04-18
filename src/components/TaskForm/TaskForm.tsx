@@ -30,7 +30,10 @@ export const TaskForm: FC = (): JSX.Element => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex gap-2  w-full mt-8 ">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col md:flex-row gap-2  w-full  mt-6 md:mt-8 "
+      >
         <input
           type="text"
           placeholder="Enter Task"
@@ -39,11 +42,11 @@ export const TaskForm: FC = (): JSX.Element => {
             setInput(e.target.value);
             if (error) setError('');
           }}
-          className="outline-none w-4/5 border p-2 rounded-lg text-lg font-medium transition-all duration-300 hover:border-2 hover:border-gray-400"
+          className="outline-none w-full md:w-4/5 border p-2 rounded-lg text-lg font-medium transition-all duration-300 hover:border-2 hover:border-gray-400"
         />
         <button
           type="submit"
-          className="w-1/5 border p-2 rounded-xl text-lg font-bold bg-gradient-to-r from-blue-500 to-blue-400 text-white transition-all duration-300 ease-in-out hover:from-blue-400 hover:to-blue-600"
+          className="w-full md:w-1/5 border p-2 rounded-xl text-lg font-bold bg-gradient-to-r from-blue-500 to-blue-400 text-white transition-all duration-300 ease-in-out hover:from-blue-400 hover:to-blue-600"
         >
           Add task
         </button>

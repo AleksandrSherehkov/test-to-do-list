@@ -24,7 +24,7 @@ export const TaskListItem: React.FC<TaskListItemProps> = ({
     <li className="w-full flex justify-between items-center p-4 rounded-xl bg-fogWhite shadow-xl transition-all duration-200 ease-in-out transform hover:scale-[102%] hover:bg-slate-300">
       <button
         onClick={() => toggleTask(task.id)}
-        className={`whitespace-pre-wrap text-left w-full cursor-pointer ${
+        className={`whitespace-pre-wrap text-left w-full cursor-pointer text-xs md:text-base ${
           task.completed ? 'text-red-500 line-through' : 'text-swamp'
         } transition duration-300 ease-in-out`}
       >

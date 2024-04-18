@@ -15,10 +15,10 @@ export const ToDoList: FC = (): JSX.Element => {
   const filteredTasks = useAppSelector(selectFilteredTasks);
 
   return (
-    <div className="h-screen mx-auto flex flex-col items-center  w-2/3 p-8 rounded-2xl bg-turquoise">
+    <div className="h-screen mx-auto flex flex-col items-center w-full md:w-5/6 lg:w-2/3  p-4 md:p-8 rounded-2xl bg-turquoise">
       <TitlePage title="To-Do List App" />
       <TaskForm />
-      <div className=" w-full flex flex-col md:flex-row justify-between items-center mt-8">
+      <div className=" w-full flex justify-between items-center mt-8">
         <TaskCounter />
         <TaskFilter />
       </div>

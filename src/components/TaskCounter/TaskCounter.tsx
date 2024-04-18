@@ -12,7 +12,7 @@ export const TaskCounter: FC = (): JSX.Element => {
   const uncompletedCount = useAppSelector(selectUncompletedTaskCount);
 
   return (
-    <div className="mt-4">
+    <div className=" flex flex-col justify-center ">
       <CounterItem label="Completed" count={completedCount} />
       <CounterItem label="Uncompleted" count={uncompletedCount} />
     </div>

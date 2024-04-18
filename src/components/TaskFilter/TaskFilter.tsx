@@ -15,21 +15,23 @@ export const TaskFilter: FC = (): JSX.Element => {
   };
 
   return (
-    <form className="flex gap-3  place-self-end">
+    <form className="flex flex-col   md:flex-row  gap-1 md:gap-3  place-self-end">
       {TASK_FILTERS.map(filter => (
         <label
           key={filter.value}
-          className={`${getLabelClass(filter.value)} text-lg font-bold`}
+          className={`${getLabelClass(
+            filter.value
+          )} text-sm md:text-lg font-bold `}
         >
-          {filter.label}
           <input
             type="radio"
             name="taskFilter"
             value={filter.value}
             onChange={handleFilterChange}
             checked={currentFilter === filter.value}
-            className="ml-2"
+            className="mr-2"
           />
+          {filter.label}
         </label>
       ))}
     </form>
